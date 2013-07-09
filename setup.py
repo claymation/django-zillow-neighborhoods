@@ -13,6 +13,7 @@ setup(
     version = "0.0.1",
     author = "Clay McClure",
     author_email = "clay@daemons.net",
+    url = 'https://github.com/claymation/django-zillow',
     description = "Django model and management command for working with Zillow's free neighborhood data",
     keywords = "zillow",
     packages = ['zillow'],
