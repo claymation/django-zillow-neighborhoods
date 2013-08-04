@@ -6,13 +6,12 @@ import zipfile
 
 from django.contrib.gis.gdal import DataSource
 from django.contrib.gis.utils import LayerMapping
-# TODO -- Replace STATE_CHOICES with US_STATES when 1.3 ships
-from django.contrib.localflavor.us.us_states import STATE_CHOICES
 from django.core.management.base import NoArgsCommand, CommandError
+
+from localflavor.us.us_states import US_STATES
 
 from zillow.models import Neighborhood, neighborhood_mapping
 
-EXCLUDE_STATES = ('AS', 'DE', 'GU', 'NH', 'ND', 'MP', 'OK', 'PR', 'SC', 'SD', 'VT', 'VI', 'WV', 'WY')
 
 class Command(NoArgsCommand):
     help = "Import Zillow neighborhood boundaries"
@@ -27,10 +26,7 @@ class Command(NoArgsCommand):
             # Clear neighborhood table
             Neighborhood.objects.all().delete()
 
-            for abbrev, name in STATE_CHOICES:
-                if abbrev in EXCLUDE_STATES:
-                    continue
-
+            for abbrev, name in US_STATES:
                 self.stdout.write('Importing %s neighborhoods\n' % abbrev)
 
                 # Fetch the zipped shapefile from Zillow
