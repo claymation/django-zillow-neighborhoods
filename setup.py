@@ -1,28 +1,28 @@
 import os
-from setuptools import setup
 
-# Utility function to read the README file.
-# Used for the long_description.  It's nice, because now 1) we have a top level
-# README file and 2) it's easier to type in the README file than to put a raw
-# string in below ...
+from setuptools import setup, find_packages
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
     name = "django-zillow",
-    version = "0.0.1",
+    version = "0.1.0",
     author = "Clay McClure",
     author_email = "clay@daemons.net",
     url = 'https://github.com/claymation/django-zillow',
     description = "Django model and management command for working with Zillow's free neighborhood data",
-    keywords = "zillow",
-    packages = ['zillow'],
     long_description = read('README'),
+    keywords = "zillow neighborhood django geodjango postgis",
+    packages = find_packages(),
+    install_requires = ['django-localflavor'],
     classifiers = [
-        "Development Status :: 1 - Planning",
-        "License :: OSI Approved :: BSD License",
+        "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
         "Framework :: Django",
         "Intended Audience :: Developers",
+        "License :: OSI Approved :: BSD License",
+        "Topic :: Internet :: WWW/HTTP",
+        "Topic :: Scientific/Engineering :: GIS",
     ],
 )
