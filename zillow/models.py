@@ -7,7 +7,7 @@ class Neighborhood(models.Model):
     city = models.CharField(max_length=64)
     name = models.CharField(max_length=64)
     regionid = models.FloatField()
-    geom = models.MultiPolygonField(srid=4326)
+    geom = models.MultiPolygonField(geography=True)
 
     objects = models.GeoManager()
 
