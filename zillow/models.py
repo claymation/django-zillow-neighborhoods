@@ -8,7 +8,11 @@ class Neighborhood(models.Model):
     name = models.CharField(max_length=64)
     regionid = models.FloatField()
     geom = models.MultiPolygonField(srid=4326)
+
     objects = models.GeoManager()
+
+    def __unicode__(self):
+        return '{name}, {city}, {state}'.format(name=self.name, city=self.city, state=self.state)
 
 # Auto-generated `LayerMapping` dictionary for Neighborhood model
 neighborhood_mapping = {
