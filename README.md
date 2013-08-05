@@ -1,8 +1,7 @@
 django-zillow
 =============
 
-django-zillow is a Django application providing models and management
-commands for working with [Zillow's free neighborhood data](http://www.zillow.com/howto/api/neighborhood-boundaries.htm).
+Django app for importing and querying [Zillow's free neighborhood data](http://www.zillow.com/howto/api/neighborhood-boundaries.htm).
 
 
 Requirements
