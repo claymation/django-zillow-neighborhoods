@@ -4,6 +4,12 @@ django-zillow
 Django app for importing and querying [Zillow's free neighborhood data](http://www.zillow.com/howto/api/neighborhood-boundaries.htm).
 
 
+Demo
+----
+
+The [Neighborhoods project](https://github.com/claymation/neighborhoods) demonstrates how to incorporate django-zillow into a Django project.
+
+
 Requirements
 ------------
 
