@@ -9,7 +9,7 @@ setup(
     description = "Django app for importing and querying Zillow's neighborhood data",
     keywords = "zillow neighborhood django geodjango postgis",
     packages = find_packages(),
-    install_requires = ['django-localflavor'],
+    install_requires = ['django-localflavor', 'pyproj'],
     classifiers = [
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
