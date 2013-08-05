@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models
 
+
 class Neighborhood(models.Model):
     """Auto-generated model for Zillow neighorhood shapefiles"""
     state = models.CharField(max_length=2)
@@ -13,6 +14,24 @@ class Neighborhood(models.Model):
 
     def __unicode__(self):
         return '{name}, {city}, {state}'.format(name=self.name, city=self.city, state=self.state)
+
+    @property
+    def feature(self):
+        """
+        Return a GeoJSON Feature object for this neighborhood.
+
+        See: http://www.geojson.org/geojson-spec.html#feature-objects
+        """
+        return {
+            'type': 'Feature',
+            'geometry': {
+                'type': self.geom.geom_type,
+                'coordinates': self.geom.coords,
+            },
+            'properties': {
+                'description': self.name,
+            }
+        }
 
 # Auto-generated `LayerMapping` dictionary for Neighborhood model
 neighborhood_mapping = {
