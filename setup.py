@@ -1,17 +1,12 @@
-import os
-
 from setuptools import setup, find_packages
-
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
     name = "django-zillow",
-    version = "0.1.0",
+    version = "0.2.0",
     author = "Clay McClure",
     author_email = "clay@daemons.net",
     url = 'https://github.com/claymation/django-zillow',
-    description = "Django app for importing and querying Zillow's free neighborhood data",
+    description = "Django app for importing and querying Zillow's neighborhood data",
     keywords = "zillow neighborhood django geodjango postgis",
     packages = find_packages(),
     install_requires = ['django-localflavor'],
