@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+  <!--[if lte IE 8]>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' >
+  <![endif]-->
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+<div id='map'></div>
+<script type='text/javascript'>
+  // Define project URLs
+  var URLs = {
+    'zillow:neighborhoods': '{% url "zillow:neighborhoods" %}'
+  };
+
+  // Create a map
+  var mapBoxId = '{{ mapbox_id }}';
+  var map = L.mapbox.map('map', mapBoxId);
+
+  // Add geocoder control
+  map.addControl(L.mapbox.geocoderControl('examples.map-vyofok3q'));
+
+  // Add an empty marker layer
+  var emptyFeatureCollection = { type: "FeatureCollection", features: [] };
+  var neighborhoodLayer = L.mapbox.markerLayer(emptyFeatureCollection).addTo(map);
+
+  // Whenever the map is initialized, moved, zoomed, or resized, load neighborhood markers
+  map.on('load moveend zoomend resize', function() {
+    // Fetch neighborhoods if zoomed in close enough to see them
+    var zoom = map.getZoom();
+
+    if (zoom > 10) {
+      var bounds = map.getBounds();
+      var url = URLs['zillow:neighborhoods'] + '?bounds=' + bounds.toBBoxString();
+      neighborhoodLayer.loadURL(url);
+    } else {
+      neighborhoodLayer.setGeoJSON(emptyFeatureCollection);
+    }
+  });
+</script>
+</body>
+</html>
