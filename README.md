@@ -25,7 +25,9 @@ Requirements
 Installation
 ------------
 
-1. Setup GeoDjango (see: http://docs.djangoproject.com/en/dev/ref/contrib/gis/install/)
+1. Install the library
+
+        $ pip install django-zillow-neighborhoods
 
 2. Add 'django_zillow_neighborhoods' to `INSTALLED_APPS`
 
