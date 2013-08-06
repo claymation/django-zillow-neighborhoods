@@ -141,7 +141,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # Third-party apps
-    'zillow',
+    'django_zillow_neighborhoods',
 
     # Our project app
     'neighborhoods',

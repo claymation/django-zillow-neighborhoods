@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     url(r'^$', 'neighborhoods.views.home', name='home'),
     # url(r'^neighborhoods/', include('neighborhoods.foo.urls')),
 
-    url(r'^zillow/', include('zillow.urls', namespace='zillow')),
+    url(r'^zillow/', include('django_zillow_neighborhoods.urls', namespace='zillow')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

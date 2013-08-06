@@ -1,7 +1,7 @@
 Neighborhoods
 =============
 
-A sample Django project demonstrating how to use [django-zillow](https://github.com/claymation/django-zillow).
+A sample Django project demonstrating how to use [django-zillow-neighborhoods](https://github.com/claymation/django-zillow-neighborhoods).
 
 
 How To
@@ -34,7 +34,13 @@ These step-by-step instructions will help you get the demo app running locally. 
     $ neighborhoods/manage.py syncdb
 
     # Import the Zillow neighborhood data
+    # NB: Zillow does not have data for all states; expect some 404s
     $ neighborhoods/manage.py import_zillow_neighborhoods
+    Importing AL neighborhoods
+    Importing AK neighborhoods
+    Importing AZ neighborhoods
+    Importing AR neighborhoods
+    ...
 
     # Run the development server and launch a browser
     $ (sleep 2 && open http://localhost:8000) & neighborhoods/manage.py runserver

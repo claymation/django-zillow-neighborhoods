@@ -8,8 +8,13 @@ from pyproj import Geod
 
 from .models import Neighborhood
 
+
+# Queries specifying a bounds larger than this (measured diagonally) will be rejected
 DEFAULT_MINIMUM_DIAGONAL_IN_METERS = 10**6
-MINIMUM_DIAGONAL_IN_METERS = getattr(settings, 'ZILLOW_NEIGHBORHOODS_MINIMUM_DIAGONAL_IN_METERS', DEFAULT_MINIMUM_DIAGONAL_IN_METERS)
+MINIMUM_DIAGONAL_IN_METERS = getattr(settings,
+                                     'ZILLOW_NEIGHBORHOODS_MINIMUM_DIAGONAL_IN_METERS',
+                                     DEFAULT_MINIMUM_DIAGONAL_IN_METERS)
+
 
 def neighborhoods(request):
     """Return GeoJSON-encoded neighborhood objects matching the query"""

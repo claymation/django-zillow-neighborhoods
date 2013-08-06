@@ -10,7 +10,7 @@ from django.core.management.base import NoArgsCommand, CommandError
 
 from localflavor.us.us_states import US_STATES
 
-from zillow.models import Neighborhood, neighborhood_mapping
+from ...models import Neighborhood, neighborhood_mapping
 
 
 class Command(NoArgsCommand):

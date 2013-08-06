@@ -1,17 +1,17 @@
 from setuptools import setup, find_packages
 
 setup(
-    name = "django-zillow",
-    version = "0.2.0",
+    name = "django-zillow-neighborhoods",
+    version = "0.8.0",
     author = "Clay McClure",
     author_email = "clay@daemons.net",
-    url = 'https://github.com/claymation/django-zillow',
+    url = 'https://github.com/claymation/django-zillow-neighborhoods',
     description = "Django app for importing and querying Zillow's neighborhood data",
     keywords = "zillow neighborhood django geodjango postgis",
     packages = find_packages(),
     install_requires = ['django-localflavor', 'pyproj'],
     classifiers = [
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
         "Framework :: Django",
         "Intended Audience :: Developers",

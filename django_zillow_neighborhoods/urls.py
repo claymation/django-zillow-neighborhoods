@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 
 
-urlpatterns = patterns('zillow.views',
+urlpatterns = patterns('django_zillow_neighborhoods.views',
     url(r'neighborhoods\.geojson$', 'neighborhoods', name='neighborhoods'),
 )

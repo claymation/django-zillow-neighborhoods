@@ -1,5 +1,5 @@
-django-zillow
-=============
+django-zillow-neighborhoods
+===========================
 
 Django app for importing and querying [Zillow's free neighborhood data](http://www.zillow.com/howto/api/neighborhood-boundaries.htm).
 
@@ -7,7 +7,7 @@ Django app for importing and querying [Zillow's free neighborhood data](http://w
 Demo
 ----
 
-The [included demo project](https://github.com/claymation/django-zillow/demo) demonstrates how to incorporate `django-zillow` into a Django project.
+The [included demo project](https://github.com/claymation/django-zillow-neighborhoods/demo) demonstrates how to incorporate `django-zillow-neighborhoods` into a Django project.
 
 
 Requirements
@@ -27,7 +27,7 @@ Installation
 
 1. Setup GeoDjango (see: http://docs.djangoproject.com/en/dev/ref/contrib/gis/install/)
 
-2. Add 'zillow' to `INSTALLED_APPS`
+2. Add 'django_zillow_neighborhoods' to `INSTALLED_APPS`
 
 3. Install the database schema:
 
