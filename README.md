@@ -7,7 +7,7 @@ Django app for importing and querying [Zillow's free neighborhood data](http://w
 Demo
 ----
 
-The [Neighborhoods project](https://github.com/claymation/django-zillow/demo) demonstrates how to incorporate `django-zillow` into a Django project.
+The [included demo project](https://github.com/claymation/django-zillow/demo) demonstrates how to incorporate `django-zillow` into a Django project.
 
 
 Requirements
@@ -15,7 +15,11 @@ Requirements
 
 * Python >= 2.6
 * Django >= 1.2
-* GeoDjango's required geospatial libraries: GEOS, PROJ.4, GDAL
+* GeoDjango and its prerequisites:
+  * GEOS
+  * PROJ.4
+  * GDAL
+  * a spatial database (e.g., PostGIS)
 
 
 Installation
