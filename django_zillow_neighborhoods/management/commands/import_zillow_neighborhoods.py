@@ -1,7 +1,7 @@
 import os
 import shutil
 import tempfile
-import urllib2
+from urllib.request import urlopen
 import zipfile
 
 from django.contrib.gis.gdal import DataSource
@@ -56,7 +56,7 @@ def import_neighborhoods_shapefile(shapefile):
 
 def download(url):
     """Helper function to download a file to a temporary location."""
-    remote = urllib2.urlopen(url)
+    remote = urlopen(url)
     local = tempfile.TemporaryFile()
     try:
         shutil.copyfileobj(remote, local)
