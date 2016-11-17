@@ -30,12 +30,8 @@ class Command(NoArgsCommand):
                 self.stdout.write('Importing %s neighborhoods\n' % abbrev)
 
                 # Fetch the zipped shapefile from Zillow
-                try:
-                    url = ZILLOW_SHAPEFILE_URL % abbrev
-                    zip_file = download(url)
-                except Exception, e:
-                    self.stderr.write('Warning: Failed to fetch %s: %s\n' % (url, str(e)))
-                    continue
+                url = ZILLOW_SHAPEFILE_URL % abbrev
+                zip_file = download(url)
 
                 # Extract and import the shapefile
                 try:
