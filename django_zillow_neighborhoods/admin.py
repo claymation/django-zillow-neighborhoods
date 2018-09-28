@@ -2,4 +2,14 @@ from django.contrib.gis import admin
 
 from .models import Neighborhood
 
-admin.site.register(Neighborhood, admin.OSMGeoAdmin)
+class NeighborhoodAdmin(admin.OSMGeoAdmin):
+  list_display = [
+    'name',
+    'city',
+    'state'
+  ]
+  list_filter = [
+    'state'
+  ]
+
+admin.site.register(Neighborhood, NeighborhoodAdmin)
