@@ -21,7 +21,7 @@ class Command(BaseCommand):
     requires_model_validation = False
     
     def handle(self, **options):
-        ZILLOW_SHAPEFILE_URL = 'http://www.zillow.com/static/shp/ZillowNeighborhoods-%s.zip'
+        ZILLOW_SHAPEFILE_URL = 'https://www.zillowstatic.com/static-neighborhood-boundaries/LATEST/static-neighborhood-boundaries/shp/ZillowNeighborhoods-%s.zip'
         ZILLOW_SHAPEFILE_DIR = tempfile.mkdtemp()
 
         try:
