@@ -39,6 +39,6 @@ neighborhood_mapping = {
     'county' : 'County',
     'city' : 'City',
     'name' : 'Name',
-    'regionid' : 'REGIONID',
+    'regionid' : 'RegionID',
     'geom' : 'MULTIPOLYGON',
 }
