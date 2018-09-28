@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-
+from django.db.models import Manager as GeoManager
 
 class Neighborhood(models.Model):
     """Auto-generated model for Zillow neighorhood shapefiles"""
@@ -10,7 +10,7 @@ class Neighborhood(models.Model):
     regionid = models.FloatField()
     geom = models.MultiPolygonField(geography=True)
 
-    objects = models.GeoManager()
+    objects = GeoManager()
 
     def __unicode__(self):
         return '{name}, {city}, {state}'.format(name=self.name, city=self.city, state=self.state)
