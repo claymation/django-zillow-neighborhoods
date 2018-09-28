@@ -20,7 +20,7 @@ class Command(BaseCommand):
     output_transaction = True
     requires_model_validation = False
     
-    def handle_noargs(self, **options):
+    def handle(self, **options):
         ZILLOW_SHAPEFILE_URL = 'http://www.zillow.com/static/shp/ZillowNeighborhoods-%s.zip'
         ZILLOW_SHAPEFILE_DIR = tempfile.mkdtemp()
 
