@@ -33,7 +33,11 @@ class Command(BaseCommand):
 
                 # Fetch the zipped shapefile from Zillow
                 url = ZILLOW_SHAPEFILE_URL % abbrev
-                zip_file = download(url)
+                try:
+                    zip_file = download(url)
+                except Exception as exc:
+                    print('Could not download', abbrev, exc)
+                    return
 
                 # Extract and import the shapefile
                 try:
