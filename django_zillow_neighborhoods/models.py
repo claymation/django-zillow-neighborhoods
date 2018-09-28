@@ -7,7 +7,7 @@ class Neighborhood(models.Model):
     county = models.CharField(max_length=43)
     city = models.CharField(max_length=64)
     name = models.CharField(max_length=64)
-    regionid = models.FloatField()
+    regionid = models.IntegerField()
     geom = models.MultiPolygonField(geography=True)
 
     objects = GeoManager()
