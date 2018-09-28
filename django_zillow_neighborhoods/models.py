@@ -35,10 +35,10 @@ class Neighborhood(models.Model):
 
 # Auto-generated `LayerMapping` dictionary for Neighborhood model
 neighborhood_mapping = {
-    'state' : 'STATE',
-    'county' : 'COUNTY',
-    'city' : 'CITY',
-    'name' : 'NAME',
+    'state' : 'State',
+    'county' : 'County',
+    'city' : 'City',
+    'name' : 'Name',
     'regionid' : 'REGIONID',
     'geom' : 'MULTIPOLYGON',
 }
