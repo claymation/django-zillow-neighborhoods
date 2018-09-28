@@ -6,14 +6,16 @@ import zipfile
 
 from django.contrib.gis.gdal import DataSource
 from django.contrib.gis.utils import LayerMapping
-from django.core.management.base import NoArgsCommand, CommandError
+from django.core.management.base import CommandError
+from django.core.management.base import BaseCommand
+
 
 from localflavor.us.us_states import US_STATES
 
 from ...models import Neighborhood, neighborhood_mapping
 
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     help = "Import Zillow neighborhood boundaries"
     output_transaction = True
     requires_model_validation = False
