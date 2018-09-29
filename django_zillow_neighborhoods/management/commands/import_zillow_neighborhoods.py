@@ -1,25 +1,27 @@
 import os
 import shutil
 import tempfile
-import urllib2
+from urllib.request import urlopen
 import zipfile
 
 from django.contrib.gis.gdal import DataSource
 from django.contrib.gis.utils import LayerMapping
-from django.core.management.base import NoArgsCommand, CommandError
+from django.core.management.base import CommandError
+from django.core.management.base import BaseCommand
+
 
 from localflavor.us.us_states import US_STATES
 
 from ...models import Neighborhood, neighborhood_mapping
 
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     help = "Import Zillow neighborhood boundaries"
     output_transaction = True
     requires_model_validation = False
     
-    def handle_noargs(self, **options):
-        ZILLOW_SHAPEFILE_URL = 'http://www.zillow.com/static/shp/ZillowNeighborhoods-%s.zip'
+    def handle(self, **options):
+        ZILLOW_SHAPEFILE_URL = 'https://www.zillowstatic.com/static-neighborhood-boundaries/LATEST/static-neighborhood-boundaries/shp/ZillowNeighborhoods-%s.zip'
         ZILLOW_SHAPEFILE_DIR = tempfile.mkdtemp()
 
         try:
@@ -30,12 +32,12 @@ class Command(NoArgsCommand):
                 self.stdout.write('Importing %s neighborhoods\n' % abbrev)
 
                 # Fetch the zipped shapefile from Zillow
+                url = ZILLOW_SHAPEFILE_URL % abbrev
                 try:
-                    url = ZILLOW_SHAPEFILE_URL % abbrev
                     zip_file = download(url)
-                except Exception, e:
-                    self.stderr.write('Warning: Failed to fetch %s: %s\n' % (url, str(e)))
-                    continue
+                except Exception as exc:
+                    print('Could not download', abbrev, exc)
+                    return
 
                 # Extract and import the shapefile
                 try:
@@ -60,7 +62,7 @@ def import_neighborhoods_shapefile(shapefile):
 
 def download(url):
     """Helper function to download a file to a temporary location."""
-    remote = urllib2.urlopen(url)
+    remote = urlopen(url)
     local = tempfile.TemporaryFile()
     try:
         shutil.copyfileobj(remote, local)

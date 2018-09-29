@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-
+from django.db.models import Manager as GeoManager
 
 class Neighborhood(models.Model):
     """Auto-generated model for Zillow neighorhood shapefiles"""
@@ -7,10 +7,10 @@ class Neighborhood(models.Model):
     county = models.CharField(max_length=43)
     city = models.CharField(max_length=64)
     name = models.CharField(max_length=64)
-    regionid = models.FloatField()
+    regionid = models.IntegerField()
     geom = models.MultiPolygonField(geography=True)
 
-    objects = models.GeoManager()
+    objects = GeoManager()
 
     def __unicode__(self):
         return '{name}, {city}, {state}'.format(name=self.name, city=self.city, state=self.state)
@@ -35,10 +35,10 @@ class Neighborhood(models.Model):
 
 # Auto-generated `LayerMapping` dictionary for Neighborhood model
 neighborhood_mapping = {
-    'state' : 'STATE',
-    'county' : 'COUNTY',
-    'city' : 'CITY',
-    'name' : 'NAME',
-    'regionid' : 'REGIONID',
+    'state' : 'State',
+    'county' : 'County',
+    'city' : 'City',
+    'name' : 'Name',
+    'regionid' : 'RegionID',
     'geom' : 'MULTIPOLYGON',
 }
