@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "django-zillow-neighborhoods",
-    version = "0.8.0",
+    version = "0.8.1",
     author = "Clay McClure",
     author_email = "clay@daemons.net",
     url = 'https://github.com/claymation/django-zillow-neighborhoods',
